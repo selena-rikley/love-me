@@ -5,6 +5,8 @@
   "main": "main.js",
   "scripts": {
     "ng": "ng",
+    "precommit": "ng lint",
+    "prepush": "test",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
