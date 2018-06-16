@@ -6,12 +6,11 @@
   "scripts": {
     "ng": "ng",
     "precommit": "lint-staged && ng lint",
-    "prepush": "ng test",
+    "prepush": "ng test --watch=false --code-coverage",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "prettier": "npm run pree",
     "e2e": "ng e2e",
     "electron": "ng build && electron .",
     "electron-prod": "ng build --prod --aot=false && electron ."
