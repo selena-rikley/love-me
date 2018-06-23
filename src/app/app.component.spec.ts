@@ -1,12 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        DialogBoxComponent
       ],
     }).compileComponents();
   }));
@@ -48,6 +50,7 @@ describe('AppComponent', () => {
     });
   }));
 
+<<<<<<< HEAD
   it('start game should open the start game alert', () => {
     // TEMP TEST until the real start game is implemented
     const fixture = TestBed.createComponent(AppComponent);
@@ -56,4 +59,12 @@ describe('AppComponent', () => {
     component.startGame();
     expect(spy).toHaveBeenCalledWith('game started');
   });
+=======
+  it('should contain a dialog box', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-dialog-box')).toBeTruthy();
+  });
+
+>>>>>>> 2632b12... New dialog component
 });
