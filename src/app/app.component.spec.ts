@@ -1,12 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        DialogBoxComponent
       ],
     }).compileComponents();
   }));
@@ -47,5 +49,11 @@ describe('AppComponent', () => {
       expect(spy).toHaveBeenCalled();
     });
   }));
+
+  it('should contain a dialog box', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-dialog-box')).toBeTruthy();
+  });
 
 });
