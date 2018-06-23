@@ -6,10 +6,11 @@
   "scripts": {
     "ng": "ng",
     "precommit": "lint-staged && ng lint",
-    "prepush": "ng test --watch=false --code-coverage",
+    "prepush": "ng test --single-run --browsers ChromeHeadless --watch=false --code-coverage",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --browsers Chrome",
+    "test-auto": "ng test --single-run --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "electron": "ng build && electron .",
