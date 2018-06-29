@@ -56,4 +56,13 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('app-dialog-box')).toBeTruthy();
   });
 
+  it('start game should open the start game alert', () => {
+    // TEMP TEST until the real start game is implemented
+    const fixture = TestBed.createComponent(AppComponent);
+    const component = fixture.componentInstance;
+    const spy = spyOn(window, 'alert');
+    component.startGame();
+    expect(spy).toHaveBeenCalledWith('game started');
+  });
+
 });
