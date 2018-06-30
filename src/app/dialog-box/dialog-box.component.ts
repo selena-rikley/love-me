@@ -11,15 +11,21 @@ export class DialogBoxComponent implements OnInit {
   displayedDialog: string;
   characterName: string;
   iterator: number;
+  choices: string[];
 
   constructor() { }
 
   ngOnInit() {
     this.dialog = [];
+    this.choices = [];
     this.iterator = 0;
     this.populateDialogObject();
     this.displayedDialog = this.dialog[this.iterator];
     this.characterName = 'Selena'; // TODO: link this up with the dialog, maybe use a different data object
+    this.choices.push('This is a choice');
+    this.choices.push('This is another choice');
+    this.choices.push('You will regret this choice');
+    this.choices.push('1/2 developers like this choice');
   }
 
   populateDialogObject() {

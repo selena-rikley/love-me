@@ -1,0 +1,11 @@
+li.choice:hover {
+  background-color: #e0e0e0;
+}
+
+li.choice {
+  margin: 2px;
+}
+
+ul {
+  padding-left: 10px;
+}

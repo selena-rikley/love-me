@@ -6,6 +6,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StartMenuComponent } from './start-menu/start-menu.component';
 import { MainGameComponent } from './main-game/main-game.component';
+import { ChoiceComponent } from './choice/choice.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MainGameComponent } from './main-game/main-game.component';
     AppComponent,
     DialogBoxComponent,
     StartMenuComponent,
-    MainGameComponent
+    MainGameComponent,
+    ChoiceComponent
   ],
   imports: [
     BrowserModule,
