@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { StartMenuComponent } from './start-menu/start-menu.component';
 import { MainGameComponent } from './main-game/main-game.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
