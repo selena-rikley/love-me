@@ -22,4 +22,20 @@ describe('ChoiceComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should generate clickable list of options', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const choiceList = compiled.querySelector('li.choice');
+    const spy = spyOn(fixture.componentInstance, 'optA');
+    fixture.detectChanges();
+    choiceList.click();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should record choice on click', () => {
+    // TEMP TEST until recording method implemented
+    const spy = spyOn(window, 'alert');
+    component.optA();
+    expect(spy).toHaveBeenCalledWith('Your choice could have consequences');
+  })
 });

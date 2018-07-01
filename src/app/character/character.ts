@@ -11,7 +11,7 @@ class Character {
         this.friendPts = 0;
     };
 
-}
+};
 
 enum characterTag {
     Freddie = 'Freddie',
