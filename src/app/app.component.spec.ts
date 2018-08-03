@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {StartMenuComponent} from './start-menu/start-menu.component';
 import {MainGameComponent} from './main-game/main-game.component';
 import {DialogBoxComponent} from './dialog-box/dialog-box.component';
+import { ChoiceComponent } from './choice/choice.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -13,7 +14,8 @@ describe('AppComponent', () => {
         AppComponent,
         StartMenuComponent,
         MainGameComponent,
-        DialogBoxComponent
+        DialogBoxComponent,
+        ChoiceComponent
       ],
       imports: [ RouterTestingModule.withRoutes([{path: 'start', component: StartMenuComponent},
       {path: 'main', component: MainGameComponent}]) ]
