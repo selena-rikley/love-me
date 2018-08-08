@@ -9,7 +9,7 @@ import * as CharacterUtils from '../character/character';
 })
 export class DialogBoxComponent implements OnInit {
 
-  dialog: string[];
+  dialog: DialogUtils.DialogText;
   displayedDialog: string;
   characterName: string;
   iterator: number;
@@ -18,14 +18,12 @@ export class DialogBoxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.dialog = [];
     this.choices = [];
     this.iterator = 0;
-    this.populateDialogObject();
-
+    this.dialog = this.populateDialogList();
   }
 
-  populateDialogObject() {
+  populateDialogList() {
     // TODO: Replace with actual dialog from something, maybe a file?
     const text = [
       'Description=You slowly open your eyes. It\'s too bright. You can hear someone speaking. Your head hurts.',
@@ -61,6 +59,8 @@ export class DialogBoxComponent implements OnInit {
       }
       last.next = next;
     });
+
+    return start;
   }
 
   createChoiceArray(choices: string[]) {
@@ -87,8 +87,8 @@ export class DialogBoxComponent implements OnInit {
 
   nextLine() {
     // TODO: Add better logic for moving to next line of dialog
-    this.iterator = (this.iterator + 1) % 2;
-    this.displayedDialog = this.dialog[this.iterator];
+    this.dialog = this.dialog.next;
+    this.displayedDialog = this.dialog.text;
   }
 
 }
