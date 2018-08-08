@@ -2,5 +2,8 @@
   <h3>{{characterName}}</h3>
   <p>
     {{displayedDialog}}
-  </p>  
+  </p>
+  <div *ngFor="let pick of choices">
+    <app-choice [option]="pick"></app-choice>
+  </div>
 </div>

@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainGameComponent } from './main-game.component';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
+import { ChoiceComponent } from '../choice/choice.component';
 
 describe('MainGameComponent', () => {
   let component: MainGameComponent;
@@ -9,7 +10,11 @@ describe('MainGameComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainGameComponent, DialogBoxComponent ]
+      declarations: [
+        MainGameComponent,
+        DialogBoxComponent,
+        ChoiceComponent
+      ]
     })
     .compileComponents();
   }));
