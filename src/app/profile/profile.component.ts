@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Character, characterTag } from '../character/character';
+import { Character, CharacterTag } from '../character/character';
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +8,7 @@ import { Character, characterTag } from '../character/character';
 })
 export class ProfileComponent implements OnInit {
 
-  user = new Character('name', characterTag.Player);
+  user = new Character('name', CharacterTag.Player);
 
   constructor() { }
 
@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   goBack() {}
 
   submit(name: string, pronoun: string) {
-    this.user = new Character(name, characterTag.Player);
+    this.user = new Character(name, CharacterTag.Player);
     alert(this.user.name);
   }
 }
