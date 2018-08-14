@@ -28,10 +28,10 @@ describe('StartMenuComponent', () => {
     expect(app.title).toEqual('love-me');
   }));
 
-  it('should render title in a h1 tag', async(() => {
+  it('should render title in a img', async(() => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('love-me');
+    expect(compiled.querySelector('#imgTitle').src).toContain('/assets/tmpTitle.png');
   }));
 
   it('should render start button', async(() => {
@@ -49,6 +49,11 @@ describe('StartMenuComponent', () => {
     expect(compiled.querySelector('#settings-button').textContent).toContain('settings');
   }));
 
+  it('should render exit button', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('#exit-button').textContent).toContain('exit');
+  }));
+
   it('should start game when start button is clicked', async(() => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
@@ -64,7 +69,28 @@ describe('StartMenuComponent', () => {
     // TEMP TEST until the real start game is implemented
     const spy = spyOn(window, 'alert');
     component.startGame();
-    expect(spy).toHaveBeenCalledWith('game started');
+    expect(spy).toHaveBeenCalledWith('new game started');
+  });
+
+  it('load game should open the load game alert', () => {
+    // TEMP TEST until the real start game is implemented
+    const spy = spyOn(window, 'alert');
+    component.loadGame();
+    expect(spy).toHaveBeenCalledWith('go to load menu');
+  });
+
+  it('settings should open the settings alert', () => {
+    // TEMP TEST until the real start game is implemented
+    const spy = spyOn(window, 'alert');
+    component.settings();
+    expect(spy).toHaveBeenCalledWith('go to settings menu');
+  });
+
+  it('exit should open the exit alert', () => {
+    // TEMP TEST until the real start game is implemented
+    const spy = spyOn(window, 'alert');
+    component.exit();
+    expect(spy).toHaveBeenCalledWith('game closed');
   });
 
 });

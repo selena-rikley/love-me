@@ -1,0 +1,11 @@
+<h1>New game page</h1>
+<div id="profile-creation">
+<form>
+    <div id="text-input">
+        <label for="playerName">Name</label>
+        <input id="playerName" type="text" class="form-control" required [(ngModel)]="user.playerName" name="playerName">
+    </div>
+    <button id="submit-button" routerLink="/main" (click)="submit(user.playerName)">create</button>
+</form>
+</div>
+<button id="back-button" routerLink="/start" (click)="goBack()">back</button>

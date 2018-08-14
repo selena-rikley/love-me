@@ -15,6 +15,18 @@ export class StartMenuComponent implements OnInit {
   }
 
   startGame() {
-    alert('game started');
+    alert('new game started');
+  }
+
+  loadGame() {
+    alert('go to load menu');
+  }
+
+  settings() {
+    alert('go to settings menu');
+  }
+
+  exit() {
+    alert('game closed');
   }
 }
