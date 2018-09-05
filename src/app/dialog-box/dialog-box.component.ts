@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as DialogUtils from '../dialog';
+import * as DialogUtils from '../lib/dialog-utils';
 import * as CharacterUtils from '../character/character';
 
 @Component({

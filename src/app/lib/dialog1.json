@@ -1,0 +1,41 @@
+{
+  "scene1": [
+    [
+      "Description",
+      "You slowly open your eyes. It's too bright. You can hear someone speaking. Your head hurts."
+    ],
+    ["Freddie", "Hey."],
+    [
+      "Choice",
+      [
+        "Where am I?",
+        {
+          "Freddie": 1,
+          "Donalee": -1
+        },
+        0
+      ],
+      ["Who are you?", {}, 1]
+    ],
+    ["Donalee", "You're awake!"],
+    [
+      "Choice",
+      [
+        "Uhh",
+        {
+          "Donalee": -1
+        }
+      ],
+      ["Who are you?", {}, 2]
+    ],
+    ["Donalee", "Come with meeeeee"]
+  ],
+  "scene1_0": [["Freddie", "On board our ship"]],
+  "scene1_1": [["Freddie", "My name is Freddie!"]],
+  "scene1_2": [
+    [
+      "Donalee",
+      "I am the fabulous captain of this ship! You may call me Captain Donalee"
+    ]
+  ]
+}

@@ -1,4 +1,4 @@
-import * as CharacterUtils from './character/character';
+import * as CharacterUtils from '../character/character';
 
 export class DialogText {
     type: DialogType;
@@ -12,7 +12,6 @@ export class DialogText {
         this.type = type;
         this.next = next;
     };
-
 };
 
 export class Choice {
