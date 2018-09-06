@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Character, CharacterTag } from '../character/character';
+import { Character, CharacterTag, pronouns } from '../character/character';
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +8,7 @@ import { Character, CharacterTag } from '../character/character';
 })
 export class ProfileComponent implements OnInit {
 
-  user = new Character('name', CharacterTag.Player);
+  user = new Character('name', CharacterTag.Player, pronouns.neutral);
 
   constructor() { }
 
@@ -17,8 +17,10 @@ export class ProfileComponent implements OnInit {
 
   goBack() {}
 
-  submit(name: string, pronoun: string) {
-    this.user = new Character(name, CharacterTag.Player);
-    alert(this.user.name);
+  submit(name: string, gender: pronouns, volume: string) {
+    this.user = new Character(name, CharacterTag.Player, gender);
+    alert(volume);
+    // Added for testing purposes. May change later.
+    return this.user;
   }
 }

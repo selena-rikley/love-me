@@ -1,3 +1,22 @@
+.profile-creation {
+  border: solid 2px;
+  background: #c5caf7;
+  border-radius: 5px;
+  border-color: #5a65ab;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.face-input {
+  align-content: center;
+}
+
 button {
   border: solid 2px;
   background: #c5caf7;
@@ -14,5 +33,13 @@ button {
 }
 
 input[type="text"] {
-  width: 25%;
+  width: 90%;
+}
+
+img {
+  border: solid 2px;
+  display: block;
+  max-width: 15%;
+  max-height: 20%;
+  box-align: center;
 }
