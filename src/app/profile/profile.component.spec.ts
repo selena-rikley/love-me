@@ -67,7 +67,7 @@ describe('ProfileComponent', () => {
   it('start game should create new user', () => {
     let user: Character;
 
-    user = component.submit('testy', pronouns.female, '75');
+    user = component.submit('testy', pronouns.female);
 
     expect(user.name).toBe('testy');
     expect(user.gender).toBe(pronouns.female);

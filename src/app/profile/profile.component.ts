@@ -8,6 +8,7 @@ import { Character, CharacterTag, pronouns } from '../character/character';
 })
 export class ProfileComponent implements OnInit {
 
+  submitted = false;
   user = new Character('name', CharacterTag.Player, pronouns.neutral);
 
   constructor() { }
@@ -17,9 +18,10 @@ export class ProfileComponent implements OnInit {
 
   goBack() {}
 
-  submit(name: string, gender: pronouns, volume: string) {
+  onSubmit() { this.submitted = true; }
+
+  submit(name: string, gender: pronouns) {
     this.user = new Character(name, CharacterTag.Player, gender);
-    alert(volume);
     // Added for testing purposes. May change later.
     return this.user;
   }
