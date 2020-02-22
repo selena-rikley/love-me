@@ -2,6 +2,7 @@ export class Character {
     lovePts: number;
     friendPts: number;
     name: string;
+    pronoun: string;
     id: CharacterTag;
 
     constructor(name: string, id: CharacterTag) {
