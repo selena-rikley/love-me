@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Character, CharacterTag, pronouns } from '../character/character';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-profile',
@@ -8,8 +9,7 @@ import { Character, CharacterTag, pronouns } from '../character/character';
 })
 export class ProfileComponent implements OnInit {
 
-  submitted = false;
-  user = new Character('name', CharacterTag.Player, pronouns.neutral);
+  user = new Character('name', CharacterTag.Player, 'N');
 
   constructor() { }
 
@@ -18,11 +18,9 @@ export class ProfileComponent implements OnInit {
 
   goBack() { }
 
-  onSubmit() { this.submitted = true; }
-
-  submit(name: string, gender: pronouns) {
-    this.user = new Character(name, CharacterTag.Player, gender);
+  submit(form: NgForm) {
+    this.user = new Character(form.controls.playerName.value, CharacterTag.Player, form.controls.playerPronouns.value);
     // Added for testing purposes. May change later.
-    return this.user;
+    alert(form.controls.playerPronouns.value + form.controls.playerName.value);
   }
 }
