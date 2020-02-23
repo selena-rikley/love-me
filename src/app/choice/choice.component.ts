@@ -9,15 +9,19 @@ import { Choice } from './choice';
 export class ChoiceComponent implements OnInit {
 
   private text: string;
-  private show: boolean;
+  private _show: boolean;
 
   @Input() set option(choice: Choice) {
     if (choice) {
-      this.show = true;
+      this._show = true;
       this.text = choice.text;
     } else {
-      this.show = false;
+      this._show = false;
     }
+  }
+
+  get show() {
+    return this._show
   }
 
   ngOnInit() { }
