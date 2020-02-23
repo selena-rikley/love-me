@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
-  goBack() {}
+  goBack() { }
 
   onSubmit() { this.submitted = true; }
 

@@ -1,6 +1,6 @@
 <div class="dialog-box" (click)='nextLine()' (enter)='nextLine()'>
   <h3>{{characterName}}</h3>
-  <p>
+  <p id="displayedDialog">
     {{displayedDialog}}
   </p>
   <div *ngFor="let pick of choices">
