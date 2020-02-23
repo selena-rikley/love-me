@@ -24,7 +24,7 @@ describe('DialogBoxComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should trigger nextLine method on click', () => {
+  it('should trigger nextLine method on click', async () => {
     const compiled = fixture.debugElement.nativeElement;
     const dialogDiv = compiled.querySelector('.dialog-box');
     const spy = spyOn(fixture.componentInstance, 'nextLine');
