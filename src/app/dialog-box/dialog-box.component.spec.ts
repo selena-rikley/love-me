@@ -24,7 +24,7 @@ describe('DialogBoxComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should trigger nextLine method on click', () => {
+  it('should trigger nextLine method on click', async () => {
     const compiled = fixture.debugElement.nativeElement;
     const dialogDiv = compiled.querySelector('.dialog-box');
     const spy = spyOn(fixture.componentInstance, 'nextLine');
@@ -35,8 +35,22 @@ describe('DialogBoxComponent', () => {
     })
   });
 
-  xit('nextLine should iterate through the dialog', () => {
+  it('nextLine should iterate through the dialog', async () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const dialogDiv = compiled.querySelector('.dialog-box');
+    let dialogLine = compiled.querySelector('p');
+    expect(dialogLine.innerText).toEqual('');
 
+    dialogDiv.click();
+    fixture.detectChanges();
+
+    dialogLine = compiled.querySelector('p');
+    expect(dialogLine.innerText).toContain("You slowly open your eyes.");
+
+    dialogDiv.click();
+    fixture.detectChanges();
+
+    dialogLine = compiled.querySelector('p');
+    expect(dialogLine.innerText).toContain("Hey.");
   });
-
 });
