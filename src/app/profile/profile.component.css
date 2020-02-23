@@ -1,4 +1,4 @@
-button {
+.profile-creation {
   border: solid 2px;
   background: #c5caf7;
   border-radius: 5px;
@@ -6,13 +6,40 @@ button {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 25%;
+  width: 70%;
   margin-top: 4px;
   margin-bottom: 4px;
   padding: 10px;
-  font-size: 50px;
+  font-size: 20px;
+}
+
+button {
+  border: solid 2px;
+  background: #c5caf7;
+  border-radius: 5px;
+  border-color: #5a65ab;
+  display: absolute;
+  width: 20%;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  padding: 10px;
+  font-size: 30px;
 }
 
 input[type="text"] {
-  width: 25%;
+  width: 90%;
+  font-size: 20px;
+}
+
+img {
+  display: absolute;
+  max-width: 27%;
+  max-height: 30%;
+  align-self: center;
+}
+
+.face-input input[type="radio"]:checked + label {
+  background-color: #5a65ab;
 }

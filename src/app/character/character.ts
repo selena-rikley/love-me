@@ -5,11 +5,12 @@ export class Character {
   pronoun: string;
   id: CharacterTag;
 
-  constructor(name: string, id: CharacterTag) {
+  constructor(name: string, id: CharacterTag, pronoun: string) {
     this.name = name;
     this.id = id;
     this.lovePts = 0;
     this.friendPts = 0;
+    this.pronoun = pronoun;
   };
 };
 
@@ -18,7 +19,7 @@ export function createInitialCharacterMap() {
   
   Object.keys(CharacterTag).forEach(characterTag => {
     if (characterTag != 'Player') {
-      const character = new Character(characterTag, characterTag as CharacterTag);
+      const character = new Character(characterTag, characterTag as CharacterTag, 'N');
       characterMap.set(characterTag, character);
     }
   });
@@ -34,4 +35,10 @@ export enum CharacterTag {
   Charlie = 'Charlie',
   Robot = 'Robot',
   Player = 'You'
+}
+
+export enum pronouns {
+    male = 'M',
+    female = 'F',
+    neutral = 'N'
 }
