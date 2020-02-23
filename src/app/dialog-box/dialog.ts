@@ -10,7 +10,7 @@ enum DialogType {
 enum DialogSplitter {
   CHOICE_LINE = ';',
   CHOICE_OPTION = '|',
-  EFFECT = '\\',
+  EFFECT = '/',
   EFFECT_VALUE = ':',
   TYPE = '=',
 }
@@ -38,7 +38,7 @@ export function getDialog() {
         'Freddie=Are you awake?',
         'Freddie=Guys, \<pronoun\> \<is/are\> waking up!',
         'Freddie=How are you feeling?',
-        'Choice="Where am I?"|Freddie:+1/Donalee:-1;"Who are you?";"I feel terrible.";"I feel okay.";Say nothing.|Freddie/-1'
+        'Choice="Where am I?"|Freddie:+1/Donalee:-1;"Who are you?";"I feel terrible.";"I feel okay.";Say nothing.|Freddie:-1'
       ];
 
     return createDialogTextList(text);
@@ -89,7 +89,7 @@ function getEffectMap(effects: string[]) {
   const effectMap = new Map<CharacterTag, Number>();
   effects.forEach(effect => {
     const [characterTag, effectValue] = effect.split(DialogSplitter.EFFECT_VALUE);
-    effectMap[characterTag] = Number(effectValue);
+    effectMap.set(characterTag as CharacterTag, Number(effectValue));
   });
   return effectMap;
 }

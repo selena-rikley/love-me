@@ -37,7 +37,6 @@ describe('ChoiceComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     const choice = compiled.querySelector('li.choice');
-    console.log(choice)
     expect(choice.innerText).toEqual("mockText");
   });
 
@@ -52,6 +51,7 @@ describe('ChoiceComponent', () => {
   });
 
   it('should record choice on click', () => {
+    component.option = new Choice("mockText", "");
     // TEMP TEST until recording method implemented
     const spy = spyOn(window, 'alert');
     component.optionClick();
