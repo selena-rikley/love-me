@@ -37,7 +37,6 @@ describe('ChoiceComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     const choice = compiled.querySelector('li.choice');
-    console.log(choice)
     expect(choice.innerText).toEqual("mockText");
   });
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Character, createInitialCharacterMap } from '../character/character';
 
 @Component({
   selector: 'app-main-game',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainGameComponent implements OnInit {
 
+  characterStats: Map<string, Character>
+
   constructor() { }
 
   ngOnInit() {
+    this.characterStats = createInitialCharacterMap();
   }
 
 }

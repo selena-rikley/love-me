@@ -29,6 +29,11 @@ describe('MainGameComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should create default character stats', () => {
+    expect(component.characterStats).toBeDefined();
+    expect(component.characterStats.size).toEqual(6);
+  });
+
   it('should contain a dialog box', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('app-dialog-box')).toBeTruthy();

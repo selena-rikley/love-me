@@ -27,6 +27,8 @@ export class ChoiceComponent implements OnInit {
   ngOnInit() { }
 
   optionClick() {
+    CharacterData
+
     alert('Your choice could have consequences');
   }
 }
