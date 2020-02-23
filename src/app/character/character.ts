@@ -1,6 +1,6 @@
 export class Character {
-  lovePts: number;
-  friendPts: number;
+  lovePts: Number;
+  friendPts: Number;
   name: string;
   pronoun: string;
   id: CharacterTag;

@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CharacterTag } from '../character/character';
 import { Choice } from './choice';
+
+import { CharacterStatsService } from '../character/character-stats.service';
 
 @Component({
   selector: 'app-choice',
@@ -8,13 +11,16 @@ import { Choice } from './choice';
 })
 export class ChoiceComponent implements OnInit {
 
-  private text: string;
+  choice: Choice;
   private _show: boolean;
+
+  constructor(private characterStatsService: CharacterStatsService) {
+  }
 
   @Input() set option(choice: Choice) {
     if (choice) {
       this._show = true;
-      this.text = choice.text;
+      this.choice = choice;
     } else {
       this._show = false;
     }
@@ -25,10 +31,11 @@ export class ChoiceComponent implements OnInit {
   }
 
   ngOnInit() { }
-
-  optionClick() {
-    CharacterData
-
-    alert('Your choice could have consequences');
+  
+  optionClick () {
+    console.log(this.choice)
+    this.characterStatsService.sendCharacterStatsUpdate(this.choice.characterEffects);
+    // TODO: Move to next dialog
+    alert('Your choice could have consequences'); 
   }
 }

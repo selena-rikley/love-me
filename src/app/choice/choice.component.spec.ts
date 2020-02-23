@@ -51,6 +51,7 @@ describe('ChoiceComponent', () => {
   });
 
   it('should record choice on click', () => {
+    component.option = new Choice("mockText", "");
     // TEMP TEST until recording method implemented
     const spy = spyOn(window, 'alert');
     component.optionClick();

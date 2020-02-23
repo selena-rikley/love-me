@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DialogText, getDialog } from './dialog';
 import { Choice } from '../choice/choice';
+import { CharacterTag } from '../character/character';
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',
