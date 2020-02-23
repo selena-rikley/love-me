@@ -4,13 +4,15 @@ export class Character {
   name: string;
   pronoun: string;
   id: CharacterTag;
+  appearance: Number
 
-  constructor(name: string, id: CharacterTag, pronoun: string) {
+  constructor(name: string, id: CharacterTag, pronoun: string, appearance: Number) {
     this.name = name;
     this.id = id;
     this.lovePts = 0;
     this.friendPts = 0;
     this.pronoun = pronoun;
+    this.appearance = appearance;
   };
 };
 
@@ -19,7 +21,7 @@ export function createInitialCharacterMap() {
   
   Object.keys(CharacterTag).forEach(characterTag => {
     if (characterTag != 'Player') {
-      const character = new Character(characterTag, characterTag as CharacterTag, 'N');
+      const character = new Character(characterTag, characterTag as CharacterTag, 'N', 1);
       characterMap.set(characterTag, character);
     }
   });
