@@ -35,8 +35,22 @@ describe('DialogBoxComponent', () => {
     })
   });
 
-  xit('nextLine should iterate through the dialog', () => {
+  it('nextLine should iterate through the dialog', async () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const dialogDiv = compiled.querySelector('.dialog-box');
+    let dialogLine = compiled.querySelector('p');
+    expect(dialogLine.innerText).toEqual('');
 
+    dialogDiv.click();
+    fixture.detectChanges();
+
+    dialogLine = compiled.querySelector('p');
+    expect(dialogLine.innerText).toContain("You slowly open your eyes.");
+
+    dialogDiv.click();
+    fixture.detectChanges();
+
+    dialogLine = compiled.querySelector('p');
+    expect(dialogLine.innerText).toContain("Hey.");
   });
-
 });
