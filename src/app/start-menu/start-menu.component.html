@@ -1,5 +1,9 @@
-<div><img id='imgTitle' src="assets/tmpTitle.png" alt={{title}}>
-<button id="start-button" routerLink="/new-game" (click)="startGame()">start</button>
-<button id="load-button" (click)="loadGame()">load</button>
-<button id="settings-button" (click)="settings()">settings</button>
-<button id="exit-button" (click)="exit()">exit</button></div>
+<div class="main">
+  <img id='imgTitle' src="assets/tmpTitle.png" alt={{title}} class='title-image'>
+  <div class="button-box">
+    <button id="start-button" routerLink="/new-game" (click)="startGame()">start</button>
+    <button id="load-button" (click)="loadGame()">load</button>
+    <button id="settings-button" routerLink="/settings" (click)="settings()">settings</button>
+    <button id="exit-button" (click)="exit()">exit</button>
+  </div>
+</div>

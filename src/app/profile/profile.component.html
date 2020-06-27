@@ -1,27 +1,41 @@
-<h1>New game page</h1>
-    <div id="profile-creation">
-        <form #userInfo="ngForm">
-            <div id="text-input">
-                <label for="playerName">Name</label>
-                <input id="playerName" type="text" name="playerName" class="form-input" required [(ngModel)]="user.name">
-            </div>
-            <div id="radio-input-pronouns">
-                <label for="playerPronouns">Pronouns</label>
-                <input id="male" type="radio" value="F" name="playerPronouns" class="form-input" required [(ngModel)]="user.pronoun">she/her
-                <input id="female" type="radio" value="M" name="playerPronouns" class="form-input" required [(ngModel)]="user.pronoun">he/him
-                <input id="neutral" type="radio" value="N" name="playerPronouns" class="form-input" required [(ngModel)]="user.pronoun">they/them
-            </div>
-            <div id="radio-input-image">
-                <label for="playerAppearance">Appearance</label>
-                <input id="short-light" type="radio" value=1 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance"><img src="assets/tmpPic.png" height=100px>Option A
-                <input id="short-medium" type="radio" value=2 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance"><img src="assets/tmpPic.png" height=100px>Option B
-                <input id="short-dark" type="radio" value=3 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance"><img src="assets/tmpPic.png" height=100px>Option C
-                <input id="Long-light" type="radio" value=4 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance"><img src="assets/tmpPic.png" height=100px>Option D
-                <input id="Long-medium" type="radio" value=5 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance"><img src="assets/tmpPic.png" height=100px>Option E
-                <input id="Long-dark" type="radio" value=6 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance"><img src="assets/tmpPic.png" height=100px>Option F
-                <!-- <input id="short-dark" type="radio" value="SD" name="playerImage" class="form-input" required [(ngModel)]="user.image"><img src="../../assets/tmpPic.png"> -->
-            </div>
-            <button id="submit-button" routerLink="/main" (click)="submit(userInfo)">create</button>
-        </form>
+<form #userInfo="ngForm">
+  <div id="profile-creation" class="main-section">
+    <div id="text-input" clas="form-element">
+      <label for="playerName" class="input-label">Name</label>
+      <input id="playerName" type="text" name="playerName" class="form-input" placeholder="name" required [(ngModel)]="user.name">
     </div>
-<button id="back-button" routerLink="/start" (click)="goBack()">back</button>
+    <div id="radio-input-pronouns">
+      <label for="playerPronouns" class="input-label">Pronouns</label>
+      <div class="radio-pronouns">
+        <input id="male" type="radio" value="F" name="playerPronouns" class="form-input" required [(ngModel)]="user.pronoun">
+        <label for="playerPronouns" class="radio-label">she/her</label>
+        <input id="female" type="radio" value="M" name="playerPronouns" class="form-input" required [(ngModel)]="user.pronoun">
+        <label for="playerPronouns" class="radio-label">he/him</label>
+        <input id="neutral" type="radio" value="N" name="playerPronouns" class="form-input" required [(ngModel)]="user.pronoun">
+        <label for="playerPronouns" class="radio-label">they/them</label>
+      </div>
+    </div>
+    <div id="radio-input-image">
+      <label for="playerAppearance" class="input-label">Appearance</label>
+      <div class="radio-appearance">
+        <input id="Short-light" type="radio" value=1 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance">
+        <label for="Short-light" class="radio-label"><img src="assets/tmpPic.png">Option A</label>
+        <input id="Short-medium" type="radio" value=2 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance">
+        <label for="Short-medium" class="radio-label"><img src="assets/tmpPic.png">Option B</label>
+        <input id="Short-dark" type="radio" value=3 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance">
+        <label for="Short-dark" class="radio-label"><img src="assets/tmpPic.png">Option c</label>
+      </div>
+      <div class="radio-appearance">
+        <input id="Long-light" type="radio" value=4 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance">
+        <label for="Long-light" class="radio-label"><img src="assets/tmpPic.png">Option D</label>
+        <input id="Long-medium" type="radio" value=5 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance">
+        <label for="Long-medium" class="radio-label"><img src="assets/tmpPic.png">Option E</label>
+        <input id="Long-dark" type="radio" value=6 name="playerAppearance" class="form-input" required [(ngModel)]="user.appearance">
+        <label for="Long-dark" class="radio-label"><img src="assets/tmpPic.png">Option F</label>
+      </div>
+    </div>
+  </div> 
+  <button id="back-button" class="back-button" routerLink="/start" (click)="goBack()">back</button>
+  <button id="submit-button" class="submit-button" routerLink="/main" (click)="submit(userInfo)">create</button>
+</form>
+

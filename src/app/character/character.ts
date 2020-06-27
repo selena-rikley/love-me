@@ -1,26 +1,25 @@
 export class Character {
-  lovePts: Number;
-  friendPts: Number;
+  lovePts: number;
+  friendPts: number;
   name: string;
   pronoun: string;
   id: CharacterTag;
-  appearance: Number
+  appearance: number;
 
-  constructor(name: string, id: CharacterTag, pronoun: string, appearance: Number) {
+  constructor(name: string, id: CharacterTag, pronoun: string, appearance: number) {
     this.name = name;
     this.id = id;
     this.lovePts = 0;
     this.friendPts = 0;
     this.pronoun = pronoun;
     this.appearance = appearance;
-  };
-};
+  }
+}
 
 export function createInitialCharacterMap() {
-  let characterMap = new Map<string, Character>();
-  
+  const characterMap = new Map<string, Character>();
   Object.keys(CharacterTag).forEach(characterTag => {
-    if (characterTag != 'Player') {
+    if (characterTag !== 'Player') {
       const character = new Character(characterTag, characterTag as CharacterTag, 'N', 1);
       characterMap.set(characterTag, character);
     }

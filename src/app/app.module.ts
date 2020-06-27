@@ -10,7 +10,7 @@ import { StartMenuComponent } from './start-menu/start-menu.component';
 import { MainGameComponent } from './main-game/main-game.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChoiceComponent } from './choice/choice.component';
-
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { ChoiceComponent } from './choice/choice.component';
     StartMenuComponent,
     MainGameComponent,
     ProfileComponent,
-    ChoiceComponent
+    ChoiceComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
