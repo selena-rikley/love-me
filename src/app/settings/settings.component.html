@@ -1,0 +1,22 @@
+<form #gameSettings="ngForm">
+  <div id="profile-creation" class="main-section">
+    <h1>Game Settings</h1>
+    <div>
+      <label for="volume" class="input-label">Volume</label>
+      <input id="volume" type="range" min="0" max="100" name="volume" required [(ngModel)]="this.volume"/>
+    </div>
+    <div id="select-resolution" class="select-resolution">
+      <label for="resolution" class="input-label">Resolution</label>
+      <select id="resolution" name="resolution" class="form-input" required [(ngModel)]="this.resolution">
+        <option id="res1" value=1080 class="select-input" name="resolution">1080p</option>
+        <option id="res2" value=720 class="select-input" name="resolution">720p</option>
+        <option id="res3" value=460 class="select-input" name="resolution">460p</option>
+      </select>
+    </div>
+  </div> 
+  <button id="back-button" class="back-button" routerLink="/start" (click)="goBack()">back</button>
+  <button id="reset-button" class="reset-button" (click)="reset()">reset</button>
+  <button id="submit-button" class="submit-button" (click)="submit(gameSettings)">save</button>
+</form>
+
+
