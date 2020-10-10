@@ -12,6 +12,10 @@ export class StartMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // Check for local storage support from browser.
+    if (typeof(Storage) === 'undefined') {
+      alert('WARNING! You browser does not support local storage. Some elements of the game may not be available on your current browser');
+    }
   }
 
   startGame() {

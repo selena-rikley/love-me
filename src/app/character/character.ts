@@ -1,18 +1,41 @@
 export class Character {
+  id: CharacterTag;
+  name: string;
+  pronouns: string;
+  appearance: number;
   lovePts: number;
   friendPts: number;
-  name: string;
-  pronoun: string;
-  id: CharacterTag;
-  appearance: number;
 
-  constructor(name: string, id: CharacterTag, pronoun: string, appearance: number) {
+  constructor(name: string, id: CharacterTag, pronouns: string, appearance: number) {
     this.name = name;
     this.id = id;
     this.lovePts = 0;
     this.friendPts = 0;
-    this.pronoun = pronoun;
+    this.pronouns = pronouns;
     this.appearance = appearance;
+  }
+
+  public updateUserProfile(newName: string, newPronouns: string, newAppearance: number) {
+    // A function to update user information when creating a new profile.
+    this.name = newName;
+    this.pronouns = newPronouns;
+    this.appearance = newAppearance;
+  }
+
+  public setLovePts(newPoints: number) {
+    this.lovePts = newPoints;
+  }
+
+  public getLovePts() {
+    return this.lovePts;
+  }
+
+  public setFriendPts(newPoints: number) {
+    this.friendPts = newPoints;
+  }
+
+  public getFriendPts() {
+    return this.friendPts;
   }
 }
 
@@ -38,7 +61,7 @@ export enum CharacterTag {
   Player = 'You'
 }
 
-export enum pronouns {
+export enum Pronouns {
     male = 'M',
     female = 'F',
     neutral = 'N'
