@@ -1,0 +1,23 @@
+<?xml version="1.0" ?> 
+<chapter id="chapter1">
+  <dialogue id="1001" >
+    <description>Man, fix my car!</description>
+    <dialog character="Freddie">
+  </dialogue>
+  <dialogue id="1001" >
+    <choices>
+      <choice id="Where am I?">
+        <command>sendCharacterStatusUpdate(freddie);</command>
+        <command>npc.carFixed = true</command>
+        <command>hero.playSmokeAnimation()</command>
+        <command>nextDialogue = 104</command>
+      </choice>
+      <choice >
+        <command>nextDialogue = 105</command>
+      </choice>
+      <choice id="Fix it yourself">
+        <command>npc.likesHero -= 1</command>
+      </choice>
+    </choices>
+  </dialogue>
+</chapter>

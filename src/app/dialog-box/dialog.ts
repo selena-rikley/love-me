@@ -93,3 +93,26 @@ function getEffectMap(effects: string[]) {
   });
   return effectMap;
 }
+
+
+export function getDialogForChapter(chapterId) {
+  const xmlChapter = require(`../../assets/dialog/${chapterId}.xml`);
+  let xml_content= `<employees>
+  <employee>
+  <id>1</id>
+  <name>Iqbal</name>
+  <address>xxxxx</address>
+  <contact>xxxxxx88xx</contact>
+  </employee>
+  <employee>
+  <id>2</id>
+  <name>Anil</name>
+  <address>xxxxx</address>
+  <contact>xxxxxx88xx</contact>
+  </employee>
+  </employees>`;
+  const parser = new DOMParser();
+  const xmlDoc = parser.parseFromString(xmlChapter,"text/xml");
+
+  console.log(xmlDoc.getElementsByTagName("employee"));
+}
