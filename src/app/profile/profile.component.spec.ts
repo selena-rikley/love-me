@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileComponent } from './profile.component';
 import { FormsModule } from '@angular/forms';
-import { Character, pronouns, CharacterTag } from '../character/character';
+import { Character, Pronouns, CharacterTag } from '../character/character';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
