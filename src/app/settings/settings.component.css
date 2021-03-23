@@ -35,6 +35,12 @@ button{
   right: 10%;
 }
 
+.reset-button{
+  position: absolute;
+  left: 45%;
+  right: 45%;
+}
+
 input[type="text"] {
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 3%;
@@ -47,15 +53,21 @@ input[type="text"] {
   margin-bottom: 2%;
 }
 
+input[type="radio"] {
+  margin-left: 3%;
+  margin-right: 1%;
+}
+
 img{
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .input-label{
   font-family: Arial, Helvetica, sans-serif;
   font-size: large;
   padding-left: 3%;
+  padding-right: 1%;
 }
 
 .radio-pronouns{
@@ -63,17 +75,6 @@ img{
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 3%;
   text-transform: capitalize;
-  padding-left: 3%;
-  padding-top: .5%;
-}
-
-.radio-appearance{
-  font-size: normal;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 3%;
-  text-transform: capitalize;
-  padding-top: .5%;
-  text-align: center;
 }
 
 .radio-label{
@@ -81,17 +82,29 @@ img{
   display: inline-block;
   height: fit-content;
   width: fit-content;
-  padding: 3px;
-  border: solid;
-  border-width: 2px;
-  border-color: #d9d2e9ff;
+  vertical-align: middle;
 }
 
-.radio-input{
-  display: none;
+.select-resolution{
+  font-size: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 3%;
+  text-transform: capitalize;
+  align-content: center;
+  vertical-align: middle;
 }
 
-.radio-input:checked+label{
-  background-color: #b4a7d6ff;
-  border-color: #20124dff;
+select{
+  width: 10%;
+  min-width: 75px;
+}
+
+h1 {
+  font-size: x-large;
+  padding-left: 3%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="range"]{
+  width: 80%;
 }

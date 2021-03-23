@@ -1,0 +1,31 @@
+<?xml version="1.0" ?> 
+<chapter id="chapter1">
+  <dialogue id="1001">
+    <description>Your eyes open.</description>
+  </dialogue>
+  <dialogue id="1002" >
+    <speak character="Freddie">
+      Hello?
+    </speak>
+  </dialogue>
+  <dialogue id="1003" >
+    <choices>
+      <choice>
+        <text>"Where am I?"</text>
+        <statusEffects>
+          <effect character="Donalee">-1</effect>
+          <effect character="Freddie">+1</effect>
+        </statusEffects>
+        <nextId>1004</nextId>
+      </choice>
+      <choice>
+        <text>"Who are you?"</text>
+        <nextId>1005</nextId>
+      </choice>
+      <choice>
+        <text>"Fix it yourself"</text>
+        <nextId>1006</nextId>
+      </choice>
+    </choices>
+  </dialogue>
+</chapter>

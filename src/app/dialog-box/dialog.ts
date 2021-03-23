@@ -1,10 +1,12 @@
+import { element } from 'protractor';
 import { CharacterTag } from '../character/character';
-import { Choice } from '../choice/choice';
+import { Choice, ChoiceOptions } from '../choice/choice';
 
 enum DialogType {
-  DESCRIPTION,
-  CHARACTER_DIALOG,
-  CHOICE
+  DESCRIPTION='description',
+  CHARACTER_DIALOG='speak',
+  CHOICE='choice',
+  CHOICES='choices'
 }
 
 enum DialogSplitter {
@@ -16,6 +18,7 @@ enum DialogSplitter {
 }
 
 export class DialogText {
+  id: number;
   type: DialogType;
   next: DialogText; // linked list
   text?: string;
@@ -42,6 +45,68 @@ export function getDialog() {
       ];
 
     return createDialogTextList(text);
+}
+
+export function getDialogFromXML(contentXML) {
+  if (contentXML) {
+    const dialogueElements = contentXML.getElementsByTagName('dialogue');
+
+    const start = new DialogText(); // Staring with an empty object
+    let next = start;
+
+    console.log(dialogueElements)
+
+    for (let dialogue of dialogueElements) {
+      const last = next;
+      next = new DialogText();
+
+      const elementContent = dialogue.children[0];
+
+      next.type = elementContent.nodeName
+
+      switch(next.type) {
+        default:
+        case DialogType.DESCRIPTION:
+          next.text = elementContent.textContent;
+          break;
+        case DialogType.CHARACTER_DIALOG:
+          next.text = elementContent.textContent;
+          next.character = elementContent.getAttribute('character') as CharacterTag;
+          break;
+        case DialogType.CHOICES:
+          next.type = DialogType.CHOICE;
+
+          next.choices = [];
+
+          const choiceOptions = elementContent.children;
+          // build choice array
+          for (let choice of choiceOptions) {
+            const choiceObject = new Choice();
+            for (let element of choice.children) {
+              switch(element.nodeName) {
+                case ChoiceOptions.TEXT:
+                  choiceObject.text = element.textContent;
+                  break;
+                case ChoiceOptions.NEXT_ID:
+                  choiceObject.next = element.textContent
+                  break;
+                case ChoiceOptions.STATUS_EFFECT_LIST:
+                  const effectMap = new Map<CharacterTag, Number>();
+                  for (let effect of element.children) {
+                    effectMap.set(effect.getAttribute('character') as CharacterTag, Number(effect.textContent))
+                  }
+                  choiceObject.characterEffects = effectMap;
+                  break;
+              }
+            }
+            next.choices.push(choiceObject)
+          }
+          break;
+        }
+      last.next = next;
+    }
+    return start;
+  }
 }
 
 function createDialogTextList(text) {
@@ -92,4 +157,24 @@ function getEffectMap(effects: string[]) {
     effectMap.set(characterTag as CharacterTag, Number(effectValue));
   });
   return effectMap;
+}
+
+function loadXML(file, chapterContentService) {
+  console.log('loadXML')
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log('Got file')
+         // Typical action to be performed when the document is ready:
+         const parser = new DOMParser();
+         const chapterText = parser.parseFromString(xhttp.responseText.toString(),"text/xml");
+        chapterContentService.sendChapterContentUpdate(chapterText);
+      }
+  };
+  xhttp.open("GET", file, true);
+  xhttp.send();
+}
+
+export async function getDialogForChapter(chapterId, chapterContentService) {
+  loadXML(`../../assets/dialog/${chapterId}.xml`, chapterContentService);
 }

@@ -1,26 +1,48 @@
 export class Character {
-  lovePts: Number;
-  friendPts: Number;
-  name: string;
-  pronoun: string;
   id: CharacterTag;
-  appearance: Number
+  name: string;
+  pronouns: string;
+  appearance: number;
+  lovePts: number;
+  friendPts: number;
 
-  constructor(name: string, id: CharacterTag, pronoun: string, appearance: Number) {
+  constructor(name: string, id: CharacterTag, pronouns: string, appearance: number) {
     this.name = name;
     this.id = id;
     this.lovePts = 0;
     this.friendPts = 0;
-    this.pronoun = pronoun;
+    this.pronouns = pronouns;
     this.appearance = appearance;
-  };
-};
+  }
+
+  public updateUserProfile(newName: string, newPronouns: string, newAppearance: number) {
+    // A function to update user information when creating a new profile.
+    this.name = newName;
+    this.pronouns = newPronouns;
+    this.appearance = newAppearance;
+  }
+
+  public setLovePts(newPoints: number) {
+    this.lovePts = newPoints;
+  }
+
+  public getLovePts() {
+    return this.lovePts;
+  }
+
+  public setFriendPts(newPoints: number) {
+    this.friendPts = newPoints;
+  }
+
+  public getFriendPts() {
+    return this.friendPts;
+  }
+}
 
 export function createInitialCharacterMap() {
-  let characterMap = new Map<string, Character>();
-  
+  const characterMap = new Map<string, Character>();
   Object.keys(CharacterTag).forEach(characterTag => {
-    if (characterTag != 'Player') {
+    if (characterTag !== 'Player') {
       const character = new Character(characterTag, characterTag as CharacterTag, 'N', 1);
       characterMap.set(characterTag, character);
     }
@@ -39,7 +61,7 @@ export enum CharacterTag {
   Player = 'You'
 }
 
-export enum pronouns {
+export enum Pronouns {
     male = 'M',
     female = 'F',
     neutral = 'N'
