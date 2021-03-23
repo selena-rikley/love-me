@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { DialogText, getDialog } from './dialog';
+import { Component, OnInit, Input, EventEmitter, SimpleChanges } from '@angular/core';
+import { DialogText, getDialog, getDialogForChapter, getDialogFromXML } from './dialog';
 import { Choice } from '../choice/choice';
-import { CharacterTag } from '../character/character';
+
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',
@@ -9,18 +9,32 @@ import { CharacterTag } from '../character/character';
 })
 export class DialogBoxComponent implements OnInit {
 
+  @Input() xmlContent;
+
   dialog: DialogText;
   displayedDialog: string;
   characterName: string;
   iterator: number;
   choices: Choice[];
+  content;
 
   constructor() { }
 
   ngOnInit() {
     this.choices = [];
     this.iterator = 0;
-    this.dialog = getDialog();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    for (const propName in changes) {
+      if (changes.hasOwnProperty(propName)) {
+        switch (propName) {
+          case 'xmlContent': {
+            this.dialog=getDialogFromXML(changes['xmlContent'].currentValue);
+          }
+        }
+      }
+    }
   }
 
   nextLine() {
