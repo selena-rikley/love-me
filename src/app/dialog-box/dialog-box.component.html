@@ -1,9 +1,14 @@
 <div class="dialog-box" (click)='nextLine()' (enter)='nextLine()'>
-  <h3>{{characterName}}</h3>
-  <p id="displayedDialog">
-    {{displayedDialog}}
-  </p>
-  <div *ngFor="let pick of choices">
-    <app-choice [option]="pick"></app-choice>
+  <div class="dialog-text">
+    <p id="displayedDialog">
+      {{displayedDialog}}
+   </p>
+    <div *ngFor="let pick of choices">
+      <app-choice [option]="pick"></app-choice>
+    </div>
+  </div>
+  <div class="character-id">
+    <img src="assets/tmpPic.png">
+    <h3>{{characterName}}</h3>
   </div>
 </div>
