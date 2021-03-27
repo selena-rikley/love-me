@@ -9,9 +9,9 @@ export enum ChoiceOptions {
 
 export class Choice {
   text: string;
-  characterEffects?: Map<CharacterTag, Number>;
+  characterEffects?: Map<CharacterTag, number>;
   next: string;
-  constructor(text?: string, characterEffects?: Map<CharacterTag, Number>) {
+  constructor(text?: string, characterEffects?: Map<CharacterTag, number>) {
       this.text = text;
       this.characterEffects = characterEffects;
   }
