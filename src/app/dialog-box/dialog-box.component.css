@@ -1,3 +1,28 @@
+.description {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 50px 20px 50px;
+  background: #99999990;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-color: #4d4d4d;
+  bottom: 2.5vh;
+  padding-left: 2vh;
+  padding-top: 2vh;
+  height: 22vh;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.userchoices {
+  position: absolute;
+  bottom: 35vh;
+  left: 30vw;
+  right: 30vw;
+  height: fit-content;
+}
+
 .dialog-box {
   left: 0;
   right: 0;
@@ -19,6 +44,8 @@
   bottom: 2.5vh;
   padding-left: 12.5vh;
   padding-top: 2vh;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 

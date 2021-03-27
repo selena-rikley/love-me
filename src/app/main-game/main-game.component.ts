@@ -52,7 +52,7 @@ export class MainGameComponent implements OnInit {
 
       this.characterStats.get(characterTag).friendPts = newEffectValue;
       console.log(this.characterStats);
-    })
+    });
   }
 
   getCharacterStats(characterTag: CharacterTag): Character {
