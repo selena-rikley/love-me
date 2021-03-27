@@ -3,10 +3,10 @@ import { CharacterTag } from '../character/character';
 import { Choice, ChoiceOptions } from '../choice/choice';
 
 enum DialogType {
-  DESCRIPTION='description',
-  CHARACTER_DIALOG='speak',
-  CHOICE='choice',
-  CHOICES='choices'
+  DESCRIPTION = 'description',
+  CHARACTER_DIALOG = 'speak',
+  CHOICE = 'choice',
+  CHOICES = 'choices'
 }
 
 enum DialogSplitter {
@@ -30,22 +30,22 @@ export class DialogText {
   constructor(type?: DialogType, next?: DialogText) {
     this.type = type;
     this.next = next;
-  };
-};
-
-export function getDialog() {
-    // TODO: Replace with actual dialog from something, maybe a file?
-    const text = [
-        'Description=You slowly open your eyes. It\'s too bright. You can hear someone speaking. Your head hurts.',
-        'Freddie=Hey.',
-        'Freddie=Are you awake?',
-        'Freddie=Guys, \<pronoun\> \<is/are\> waking up!',
-        'Freddie=How are you feeling?',
-        'Choice="Where am I?"|Freddie:+1/Donalee:-1;"Who are you?";"I feel terrible.";"I feel okay.";Say nothing.|Freddie:-1'
-      ];
-
-    return createDialogTextList(text);
+  }
 }
+
+// export function getDialog() {
+//     // TODO: Replace with actual dialog from something, maybe a file?
+//     const text = [
+//         'Description=You slowly open your eyes. It\'s too bright. You can hear someone speaking. Your head hurts.',
+//         'Freddie=Hey.',
+//         'Freddie=Are you awake?',
+//         'Freddie=Guys, \<pronoun\> \<is/are\> waking up!',
+//         'Freddie=How are you feeling?',
+//         'Choice="Where am I?"|Freddie:+1/Donalee:-1;"Who are you?";"I feel terrible.";"I feel okay.";Say nothing.|Freddie:-1'
+//       ];
+
+//     return createDialogTextList(text);
+// }
 
 export function getDialogFromXML(contentXML) {
   if (contentXML) {
@@ -54,15 +54,15 @@ export function getDialogFromXML(contentXML) {
     const start = new DialogText(); // Staring with an empty object
     let next = start;
 
-    console.log(dialogueElements)
+    console.log(dialogueElements);
 
-    for (let dialogue of dialogueElements) {
+    for (const dialogue of dialogueElements) {
       const last = next;
       next = new DialogText();
 
       const elementContent = dialogue.children[0];
 
-      next.type = elementContent.nodeName
+      next.type = elementContent.nodeName;
 
       switch(next.type) {
         default:
@@ -80,19 +80,19 @@ export function getDialogFromXML(contentXML) {
 
           const choiceOptions = elementContent.children;
           // build choice array
-          for (let choice of choiceOptions) {
+          for (const choice of choiceOptions) {
             const choiceObject = new Choice();
-            for (let element of choice.children) {
-              switch(element.nodeName) {
+            for (const element of choice.children) {
+              switch (element.nodeName) {
                 case ChoiceOptions.TEXT:
                   choiceObject.text = element.textContent;
                   break;
                 case ChoiceOptions.NEXT_ID:
-                  choiceObject.next = element.textContent
+                  choiceObject.next = element.textContent;
                   break;
                 case ChoiceOptions.STATUS_EFFECT_LIST:
-                  const effectMap = new Map<CharacterTag, Number>();
-                  for (let effect of element.children) {
+                  const effectMap = new Map<CharacterTag, number>();
+                  for (const effect of element.children) {
                     effectMap.set(effect.getAttribute('character') as CharacterTag, Number(effect.textContent))
                   }
                   choiceObject.characterEffects = effectMap;
@@ -151,7 +151,7 @@ function createChoiceArray(choices: string[]) {
 }
 
 function getEffectMap(effects: string[]) {
-  const effectMap = new Map<CharacterTag, Number>();
+  const effectMap = new Map<CharacterTag, number>();
   effects.forEach(effect => {
     const [characterTag, effectValue] = effect.split(DialogSplitter.EFFECT_VALUE);
     effectMap.set(characterTag as CharacterTag, Number(effectValue));
@@ -160,18 +160,18 @@ function getEffectMap(effects: string[]) {
 }
 
 function loadXML(file, chapterContentService) {
-  console.log('loadXML')
-  var xhttp = new XMLHttpRequest();
+  console.log('loadXML');
+  const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log('Got file')
-         // Typical action to be performed when the document is ready:
-         const parser = new DOMParser();
-         const chapterText = parser.parseFromString(xhttp.responseText.toString(),"text/xml");
+      if (this.readyState === 4 && this.status === 200) {
+        console.log('Got file');
+        // Typical action to be performed when the document is ready:
+        const parser = new DOMParser();
+        const chapterText = parser.parseFromString(xhttp.responseText.toString(), 'text/xml');
         chapterContentService.sendChapterContentUpdate(chapterText);
       }
   };
-  xhttp.open("GET", file, true);
+  xhttp.open('GET', file, true);
   xhttp.send();
 }
 

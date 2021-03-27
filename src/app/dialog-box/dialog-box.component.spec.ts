@@ -45,12 +45,12 @@ describe('DialogBoxComponent', () => {
     fixture.detectChanges();
 
     dialogLine = compiled.querySelector('p');
-    expect(dialogLine.innerText).toContain("You slowly open your eyes.");
+    expect(dialogLine.innerText).toContain('You slowly open your eyes.');
 
     dialogDiv.click();
     fixture.detectChanges();
 
     dialogLine = compiled.querySelector('p');
-    expect(dialogLine.innerText).toContain("Hey.");
+    expect(dialogLine.innerText).toContain('Hey.');
   });
 });

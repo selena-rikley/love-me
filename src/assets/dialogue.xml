@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+
+<Act.1>    
+  <Chpt.1>
+    <description>You slowly open your eyes. It\'s too bright. You can hear someone speaking. Your head hurts.'</description>
+    <dialogue>
+      <speaker>Freddie</speaker>
+      <line>Hey.</line>
+      <line>Are you awake?</line>
+      <line>Guys, <pronoun>getPronouns(Player)</pronoun> <is-are>getIsAre(Player)</is-are> waking up!</line>
+      <line>How are you feeling?</line>
+    <dialogue>
+    <response> <!-- By design only the player can have the response tag -->
+      <choice>Where am I? <consequence>addPoints(Freddie,1),subtractPoints(Donalee,1)</consequence></choice>
+      <choice>Who are you?</choice>
+      <choice>I feel terrible.</choice>
+      <choice>I feel okay.</choice>
+      <choice>_Say nothing._<consequence>subtractPoints(Freddie,1)</consequence></choice>
+    </response>
+  </Chpt.1>
+</Act.1>
+

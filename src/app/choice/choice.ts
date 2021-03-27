@@ -2,9 +2,9 @@
 import { CharacterTag } from '../character/character';
 
 export enum ChoiceOptions {
-  TEXT='text',
-  NEXT_ID='nextId',
-  STATUS_EFFECT_LIST='statusEffects'
+  TEXT= 'text',
+  NEXT_ID= 'nextId',
+  STATUS_EFFECT_LIST= 'statusEffects'
 }
 
 export class Choice {

@@ -7,12 +7,12 @@
     <div id="radio-input-pronouns">
       <label for="playerPronouns" class="input-label">Pronouns</label>
       <div class="radio-pronouns">
-        <input id="male" type="radio" value="F" name="playerPronouns" class="radio-input" required [(ngModel)]="user.pronouns">
-        <label for="playerPronouns" class="radio-label">she/her</label>
-        <input id="female" type="radio" value="M" name="playerPronouns" class="radio-input" required [(ngModel)]="user.pronouns">
-        <label for="playerPronouns" class="radio-label">he/him</label>
+        <input id="female" type="radio" value="F" name="playerPronouns" class="radio-input" required [(ngModel)]="user.pronouns">
+        <label for="female" class="radio-label">she/her</label>
+        <input id="male" type="radio" value="M" name="playerPronouns" class="radio-input" required [(ngModel)]="user.pronouns">
+        <label for="male" class="radio-label">he/him</label>
         <input id="neutral" type="radio" value="N" name="playerPronouns" class="radio-input" required [(ngModel)]="user.pronouns">
-        <label for="playerPronouns" class="radio-label">they/them</label>
+        <label for="neutral" class="radio-label">they/them</label>
       </div>
     </div>
     <div id="radio-input-image">
