@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, SimpleChanges } from '@angular/core';
 import { DialogText, getDialogForChapter, getDialogFromXML } from './dialog';
 import { Choice } from '../choice/choice';
+import { DialogService } from './dialog.service';
 
 @Component({
   selector: 'app-dialog-box',
@@ -19,12 +20,14 @@ export class DialogBoxComponent implements OnInit {
   content;
   description: boolean;
   userChoice: boolean;
+  nextID: number[];
 
-  constructor() { }
+  constructor(private dialogService: DialogService) { }
 
   ngOnInit() {
     this.choices = [];
     this.iterator = 0;
+    this.nextID = [1001];
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -40,32 +43,39 @@ export class DialogBoxComponent implements OnInit {
   }
 
   makeChoice() {
+    this.nextID = [this.dialogService.getDialogUpdate()];
     this.userChoice = false;
     this.nextLine();
+    console.log(this.nextID[0]);
   }
 
   nextLine() {
     // TODO: Add better logic for moving to next line of dialog
+    // Check that there exists another piece of dialog
     if (this.dialog.next) {
       this.dialog = this.dialog.next;
       // Leave last piece of dialogue/narration on the screen for choice
-      if (this.dialog.choices === undefined) {
-        this.displayedDialog = this.dialog.text;
-        this.characterName = this.dialog.character;
-      }
-      this.choices = this.dialog.choices;
-    }
+      if(parseInt(this.dialog.id.toString(), 10) === parseInt(this.nextID[0].toString(), 10)) {
+        if (this.dialog.choices === undefined) {
+          this.displayedDialog = this.dialog.text;
+          this.characterName = this.dialog.character;
+          this.nextID = this.dialog.nextID;
+        }
+        this.choices = this.dialog.choices;
 
-    if (this.choices !== undefined) {
-      this.userChoice = true;
-    } else {
-      this.userChoice = false;
-      if ((this.characterName === undefined)) {
-        this.description = true;
+        if (this.choices !== undefined) {
+          this.userChoice = true;
+        } else {
+          this.userChoice = false;
+          if ((this.characterName === undefined)) {
+            this.description = true;
+          } else {
+            this.description = false;
+          }
+        }
       } else {
-        this.description = false;
+        this.nextLine();
       }
     }
-
   }
 }

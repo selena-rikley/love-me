@@ -19,6 +19,6 @@
 </div>
 <div class='userchoices' *ngIf='userChoice'>
   <div *ngFor="let pick of choices">
-    <app-choice [option]="pick" (click)='makeChoice()'></app-choice>
+    <app-choice [option]="pick" (click)='makeChoice(pick)'></app-choice>
   </div>
 </div>

@@ -24,12 +24,22 @@ export class DialogText {
   text?: string;
   choices?: Choice[];
   character?: CharacterTag;
+  nextID: number[];
 
   // TODO: Add way to save
 
   constructor(type?: DialogType, next?: DialogText) {
     this.type = type;
     this.next = next;
+    this.nextID = [];
+  }
+
+  public setID(ID: number) {
+    this.id = ID;
+  }
+
+  public setNextID(ID: number) {
+    this.nextID.push(ID);
   }
 }
 
@@ -52,6 +62,8 @@ export function getDialogFromXML(contentXML) {
     const dialogueElements = contentXML.getElementsByTagName('dialogue');
 
     const start = new DialogText(); // Staring with an empty object
+    start.setNextID(1001);
+    start.setID(1000);
     let next = start;
 
     console.log(dialogueElements);
@@ -61,20 +73,26 @@ export function getDialogFromXML(contentXML) {
       next = new DialogText();
 
       const elementContent = dialogue.children[0];
+      console.log(last.id + ', ' + last.nextID);
 
       next.type = elementContent.nodeName;
 
-      switch(next.type) {
+      switch (next.type) {
         default:
         case DialogType.DESCRIPTION:
           next.text = elementContent.textContent;
+          next.setID(dialogue.id);
+          next.setNextID(dialogue.children[1].textContent);
           break;
         case DialogType.CHARACTER_DIALOG:
           next.text = elementContent.textContent;
           next.character = elementContent.getAttribute('character') as CharacterTag;
+          next.setID(dialogue.id);
+          next.setNextID(dialogue.children[1].textContent);
           break;
         case DialogType.CHOICES:
           next.type = DialogType.CHOICE;
+          next.setID(dialogue.id);
 
           next.choices = [];
 
@@ -89,6 +107,7 @@ export function getDialogFromXML(contentXML) {
                   break;
                 case ChoiceOptions.NEXT_ID:
                   choiceObject.next = element.textContent;
+                  next.setNextID(element.textContent)
                   break;
                 case ChoiceOptions.STATUS_EFFECT_LIST:
                   const effectMap = new Map<CharacterTag, number>();
@@ -99,7 +118,7 @@ export function getDialogFromXML(contentXML) {
                   break;
               }
             }
-            next.choices.push(choiceObject)
+            next.choices.push(choiceObject);
           }
           break;
         }

@@ -2,11 +2,11 @@
 <chapter id="chapter1">
   <dialogue id="1001">
     <description>Your eyes open.</description>
+    <nextId>1002</nextId>
   </dialogue>
-  <dialogue id="1002" >
-    <speak character="Freddie"> <!-- We should have a "???" option for characters we haven't met/seen -->
-      Hello?
-    </speak>
+  <dialogue id="1002">
+    <speak character="Freddie">Hello?</speak>
+    <nextId>1003</nextId>
   </dialogue>
   <dialogue id="1003" >
     <choices>
@@ -32,6 +32,7 @@
     <speak character="Freddie">
       You're on the S.S. Donalee! We found you in a bunch of wreackage. Do you remember what happened?
     </speak>
+    <nextId>1007</nextId>
   </dialogue>
   <dialogue id="1005">
     <speak character="Freddie">
@@ -43,11 +44,13 @@
     <speak character="Freddie">
       We found you in a bunch of wreackage. Do you remember anything.
     </speak>
+    <nextId>1007</nextId>
   </dialogue>
   <dialogue id="1007">
     <description>
       You don't remember anything.
     </description>
+    <nextId>1008</nextId>
   </dialogue>
   <dialogue id="1008" >
     <choices>
@@ -75,5 +78,4 @@
       </choice>
     </choices>
   </dialogue>
-
 </chapter>
