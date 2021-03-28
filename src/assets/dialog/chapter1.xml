@@ -4,7 +4,7 @@
     <description>Your eyes open.</description>
   </dialogue>
   <dialogue id="1002" >
-    <speak character="Freddie">
+    <speak character="Freddie"> <!-- We should have a "???" option for characters we haven't met/seen -->
       Hello?
     </speak>
   </dialogue>
@@ -28,4 +28,52 @@
       </choice>
     </choices>
   </dialogue>
+  <dialogue id="1004">
+    <speak character="Freddie">
+      You're on the S.S. Donalee! We found you in a bunch of wreackage. Do you remember what happened?
+    </speak>
+  </dialogue>
+  <dialogue id="1005">
+    <speak character="Freddie">
+      My name is Freddie! I'm the mechanic on the S.S. Donalee!
+    </speak>
+    <nextId>1007</nextId>
+  </dialogue>
+  <dialogue id="1006">
+    <speak character="Freddie">
+      We found you in a bunch of wreackage. Do you remember anything.
+    </speak>
+  </dialogue>
+  <dialogue id="1007">
+    <description>
+      You don't remember anything.
+    </description>
+  </dialogue>
+  <dialogue id="1008" >
+    <choices>
+      <choice>
+        <text>"No."</text>
+        <nextId>1009</nextId>
+      </choice>
+      <choice>
+        <text>Shake head no.</text>
+        <nextId>1010</nextId>
+      </choice>
+      <choice>
+        <text>[Lie] "We were attacked by aliens!"</text>
+        <statusEffects>
+          <effect character="Freddie">-1</effect>
+        </statusEffects>
+        <nextId>1011</nextId>
+      </choice>
+      <choice>
+        <text>"I don't remmember anything. I think I hurt my head."</text>
+        <statusEffects>
+          <effect character="Freddie">+1</effect>
+        </statusEffects>
+        <nextId>1012</nextId>
+      </choice>
+    </choices>
+  </dialogue>
+
 </chapter>

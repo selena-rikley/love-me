@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, SimpleChanges } from '@angular/core';
-import { DialogText, getDialog, getDialogForChapter, getDialogFromXML } from './dialog';
+import { DialogText, getDialogForChapter, getDialogFromXML } from './dialog';
 import { Choice } from '../choice/choice';
 
 @Component({
@@ -17,6 +17,8 @@ export class DialogBoxComponent implements OnInit {
   iterator: number;
   choices: Choice[];
   content;
+  description: boolean;
+  userChoice: boolean;
 
   constructor() { }
 
@@ -30,20 +32,40 @@ export class DialogBoxComponent implements OnInit {
       if (changes.hasOwnProperty(propName)) {
         switch (propName) {
           case 'xmlContent': {
-            this.dialog=getDialogFromXML(changes['xmlContent'].currentValue);
+            this.dialog = getDialogFromXML(changes['xmlContent'].currentValue);
           }
         }
       }
     }
   }
 
+  makeChoice() {
+    this.userChoice = false;
+    this.nextLine();
+  }
+
   nextLine() {
     // TODO: Add better logic for moving to next line of dialog
     if (this.dialog.next) {
       this.dialog = this.dialog.next;
-      this.displayedDialog = this.dialog.text;
-      this.characterName = this.dialog.character;  
+      // Leave last piece of dialogue/narration on the screen for choice
+      if (this.dialog.choices === undefined) {
+        this.displayedDialog = this.dialog.text;
+        this.characterName = this.dialog.character;
+      }
       this.choices = this.dialog.choices;
     }
+
+    if (this.choices !== undefined) {
+      this.userChoice = true;
+    } else {
+      this.userChoice = false;
+      if ((this.characterName === undefined)) {
+        this.description = true;
+      } else {
+        this.description = false;
+      }
+    }
+
   }
 }

@@ -12,7 +12,7 @@ import { getDialogForChapter } from '../dialog-box/dialog';
 })
 export class MainGameComponent implements OnInit {
 
-  characterStats: Map<string, Character>
+  characterStats: Map<string, Character>;
   chapterContentXML: string;
   currentChapter: number;
 
@@ -23,7 +23,7 @@ export class MainGameComponent implements OnInit {
     // Keep track of character stats
     characterStatService.characterStatsUpdate$.subscribe(
       characterEffects => {
-        if (characterEffects != null) this.setCharacterStats(characterEffects);
+        if (characterEffects != null) { this.setCharacterStats(characterEffects); }
       });
     // Keep track of chapter id
     chapterService.chapterUpdate$.subscribe(
@@ -34,28 +34,28 @@ export class MainGameComponent implements OnInit {
     // Keep track of current chapter dialog
     chapterService.chapterContentUpdate$.subscribe(
       chapterContentXML => {
-        this.chapterContentXML = chapterContentXML
+        this.chapterContentXML = chapterContentXML;
       });
    }
-  
+
   ngOnInit() {
     this.characterStats = createInitialCharacterMap();
     // this.currentChapter = 1;
     this.chapterService.sendChapterUpdate(1);
   }
 
-  setCharacterStats(characterStats: Map<CharacterTag, Number>) {
-    console.log('setCharacterStats')
+  setCharacterStats(characterStats: Map<CharacterTag, number>) {
+    console.log('setCharacterStats');
     characterStats.forEach((effectValue, characterTag) => {
       const oldEffectValue = this.characterStats.get(characterTag).friendPts;
       const newEffectValue = oldEffectValue.valueOf() + effectValue.valueOf();
 
       this.characterStats.get(characterTag).friendPts = newEffectValue;
       console.log(this.characterStats);
-    })
+    });
   }
 
-  getCharacterStats(characterTag: CharacterTag) : Character {
+  getCharacterStats(characterTag: CharacterTag): Character {
     return this.characterStats.get(characterTag);
   }
 }

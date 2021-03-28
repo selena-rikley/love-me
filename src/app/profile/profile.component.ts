@@ -27,13 +27,7 @@ export class ProfileComponent implements OnInit {
 
   submit(form: NgForm) {
     this.user.updateUserProfile( form.controls.playerName.value, form.controls.playerPronouns.value, form.controls.playerAppearance.value);
-/*     this.user = new Character(
-      form.controls.playerName.value,
-      CharacterTag.Player,
-      form.controls.playerPronouns.value,
-      form.controls.playerAppearance.value
-    );
- */
+
     // Save new file in a temporary profile until user saves
     // (could also direct user to choose a save slot before/after this page)
     localStorage.loveMeProfileTemp = JSON.stringify(this.user);
