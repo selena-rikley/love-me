@@ -1,0 +1,107 @@
+.SaveSlots{
+  width: 90vw;
+  height: 90vh;
+  border: solid;
+  border-color: black;
+  border-width: 3px;
+  margin-left: 5vw;
+  margin-top: 5vh;
+}
+
+.pagetitle{
+  width: 90vw;
+  max-height: 16vh;
+  font-size: 8vh;
+  padding: 4vh 0vw 4vh 0vw;
+  text-align: center;
+  vertical-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.save-slot-tile{
+  width: 42vw;
+  margin-left: 2vw;
+  height: 17vh;
+  margin-bottom: 1vh;
+  padding: 1vh;
+  vertical-align: top;
+}
+
+img{
+  max-height: 14.5vh;
+  max-width: 14.5vh;
+  float: left;
+}
+
+.file-info{
+  height: 16vh;
+  text-align: left;
+  margin-right: 1vh;
+  margin-left: 16.5vh;
+}
+
+.overlay-popup{
+  position: absolute;
+  width: 50vw;
+  height: 30vh;
+  left: 25vw;
+  top: 20vh;
+  border: solid 2px;
+  border-radius: 5px;
+  border-color: #20124dff;
+  background-color: #d9d2e9ff;
+  font-size: 4vh;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 7vh;
+  text-align: center;
+}
+
+.confirmation-button-box{
+  width: 50vw;
+  font-size: 30px;
+  text-transform: capitalize;
+  min-width: 240px;
+  margin-top:12vh;
+  position: relative;
+}
+
+.confirmation-cancel{
+  width: 5vw;
+  padding: 10px; 
+  font-size: 30px;
+  text-transform: capitalize;
+  min-width: 120px;
+  border: solid 2px;
+  border-radius: 5px;
+  background: #b4a7d6ff;
+  border-color: #20124dff;
+  float: left;
+}
+
+.confirmation-save{
+  width: 5vw;
+  padding: 10px; 
+  font-size: 30px;
+  text-transform: capitalize;
+  min-width: 120px;
+  border: solid 2px;
+  border-radius: 5px;
+  background: #b4a7d6ff;
+  border-color: #20124dff;
+  float: right;
+}
+
+.main-navigation{
+  position: absolute;
+  width: 5vw;
+  padding: 10px; 
+  font-size: 12px;
+  text-transform: capitalize;
+  min-width: 120px;
+  border: solid 2px;
+  border-radius: 5px;
+  background: #b4a7d6ff;
+  border-color: #20124dff;
+  margin: 4vh 0 0 2vw;
+
+}

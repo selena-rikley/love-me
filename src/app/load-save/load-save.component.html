@@ -1,0 +1,81 @@
+<div class="SaveSlots" id="save-menu" *ngIf="!isLoadMode">
+  <button class="main-navigation" routerLink="{{lastpage}}" [disabled]="showConfirmation">Back</button>
+  <div class='pagetitle'>
+    {{pageModeTitle}}
+  </div>
+  <button class="save-slot-tile" id="SaveSlot1" [disabled]="showConfirmation" (click)="confirmSave(1)">
+    <label>
+      <img src="assets/tmpPic.png" alt="Default">
+      <div class="file-info">
+        Save Slot 1
+        Player Name - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+      </div>
+    </label>
+  </button>
+  <button class="save-slot-tile" id="SaveSlot2" [disabled]="showConfirmation" (click)="confirmSave(2)">
+    Save Slot 2 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot3" [disabled]="showConfirmation" (click)="confirmSave(3)">
+    Save Slot 3 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot4" [disabled]="showConfirmation" (click)="confirmSave(4)">
+    Save Slot 4 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot5" [disabled]="showConfirmation" (click)="confirmSave(5)">
+    Save Slot 5 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot6" [disabled]="showConfirmation" (click)="confirmSave(6)">
+    Save Slot 6 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot7" [disabled]="showConfirmation" (click)="confirmSave(7)">
+    Save Slot 7 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot8" [disabled]="showConfirmation" (click)="confirmSave(8)">
+    Save Slot 8 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+</div>
+<div class="overlay-popup" *ngIf="showConfirmation">
+  Are you sure you wish to save in Slot {{selectedSaveSlot}}? <br>
+  Existing data will be overwritten.
+  <div class="confirmation-button-box">
+    <button class="confirmation-cancel" id="cancel" (click)="cancel()">Cancel</button>
+    <button class="confirmation-save" id="save" routerLink="/main" (click)="save()">Save</button>  
+  </div>
+</div>
+
+<div class="SaveSlots" id="load-menu" *ngIf="isLoadMode">
+  <button class="main-navigation" routerLink="{{lastpage}}" [disabled]="showConfirmation">Back</button>
+  <div class='pagetitle'>
+    {{pageModeTitle}}
+  </div>
+  <button class="save-slot-tile" id="SaveSlot1" routerLink="/main" (click)="loadSave(1)">
+    <label>
+      <img src="assets/tmpPic.png" alt="Default">
+      <div class="file-info">
+        Save Slot 1
+        Player Name - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+      </div>
+    </label>
+  </button>
+  <button class="save-slot-tile" id="SaveSlot2" routerLink="/main" (click)="loadSave(2)">
+    Save Slot 2 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot3" routerLink="/main" (click)="loadSave(3)">
+    Save Slot 3 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot4" routerLink="/main" (click)="loadSave(4)">
+    Save Slot 4 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot5" routerLink="/main" (click)="loadSave(5)">
+    Save Slot 5 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot6" routerLink="/main" (click)="loadSave(6)">
+    Save Slot 6 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot7" routerLink="/main" (click)="loadSave(7)">
+    Save Slot 7 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+  <button class="save-slot-tile" id="SaveSlot8" routerLink="/main" (click)="loadSave(8)">
+    Save Slot 8 - Basic Save Info Goes Here (Player Name, Time Stamp of some kind)
+  </button> 
+</div>

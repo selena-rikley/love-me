@@ -11,6 +11,11 @@ import { MainGameComponent } from './main-game/main-game.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChoiceComponent } from './choice/choice.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LoadSaveComponent } from './load-save/load-save.component';
+
+import { CharacterStatsService } from './character/character-stats.service';
+import { ChapterService } from './chapter/chapter.service';
+import { SaveFileService } from './load-save/savefile.service';
 
 @NgModule({
   declarations: [
@@ -20,14 +25,15 @@ import { SettingsComponent } from './settings/settings.component';
     MainGameComponent,
     ProfileComponent,
     ChoiceComponent,
-    SettingsComponent
+    SettingsComponent,
+    LoadSaveComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CharacterStatsService, ChapterService, SaveFileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

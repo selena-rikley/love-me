@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, SimpleChanges } from '@angular/
 import { DialogText, getDialogForChapter, getDialogFromXML } from './dialog';
 import { Choice } from '../choice/choice';
 import { DialogService } from './dialog.service';
+import { SaveFileService } from '../load-save/savefile.service';
 
 @Component({
   selector: 'app-dialog-box',
@@ -22,12 +23,26 @@ export class DialogBoxComponent implements OnInit {
   userChoice: boolean;
   nextID: number[];
 
-  constructor(private dialogService: DialogService) { }
+  constructor(
+    private dialogService: DialogService,
+    private saveFileService: SaveFileService
+  ) {
+    // Subscribe to see current chapter id
+    this.saveFileService.updateCurrentChapterID$.subscribe(value => {
+      console.log('current chapter id updated');
+    });
+
+    // Subscribe to see updated dialog id
+    this.saveFileService.updateCurrentDialogID$.subscribe(value => {
+      console.log('current dialog id updated' + value);
+      this.nextID = [value];
+    });
+  }
 
   ngOnInit() {
     this.choices = [];
     this.iterator = 0;
-    this.nextID = [1001];
+//    this.nextID = [1001];
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -77,5 +92,5 @@ export class DialogBoxComponent implements OnInit {
         this.nextLine();
       }
     }
-  }
+  }  
 }
